@@ -10,12 +10,12 @@ terraform {
 
   backend "s3" {
     region  = "us-east-1"
-    bucket  = "otherdevopsgene-cloud-custodian-presentation"
+    bucket  = "otherdevopsgene-cloud-custodian-workspace"
     key     = "terraform.tfstate"
     profile = ""
     encrypt = "true"
 
-    dynamodb_table = "otherdevopsgene-cloud-custodian-presentation-lock"
+    dynamodb_table = "otherdevopsgene-cloud-custodian-workspace-lock"
   }
 }
 
