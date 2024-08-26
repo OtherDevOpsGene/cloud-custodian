@@ -1,0 +1,30 @@
+policies:
+  - name: stop-instances-after-hours
+    resource: ec2
+    filters:
+      - type: offhour
+        tag: CustodianOffHours
+        default_tz: America/New_York
+        offhour: 19
+      - type: instance-age
+        hours: 1
+    actions:
+      - stop
+
+  - name: start-instances-before-hours
+    resource: ec2
+    filters:
+      - type: onhour
+        tag: CustodianOffHours
+        default_tz: America/New_York
+        onhour: 6
+        skip-days-from:
+          url: https://cloud-custodian-holidays.s3.amazonaws.com/cloud-custodian-holidays.txt
+          format: txt
+      - type: value
+        value: 1
+        key: LaunchTime
+        op: less-than
+        value_type: age
+    actions:
+      - start

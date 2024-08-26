@@ -1,0 +1,28 @@
+policies:
+  - name: add-required-tags-to-ec2
+    resource: aws.ec2
+    filters:
+      - type: value
+        key: tag:project
+        value: cloud-custodian-demo
+    actions:
+      - type: tag
+        key: bill-to
+        value: conferences
+      - type: tag
+        key: owner
+        value: gene@otherdevopsgene.dev
+
+  - name: add-required-tags-to-s3-bucket
+    resource: aws.s3
+    filters:
+      - type: value
+        key: tag:project
+        value: cloud-custodian-demo
+    actions:
+      - type: tag
+        key: bill-to
+        value: conferences
+      - type: tag
+        key: owner
+        value: gene@otherdevopsgene.dev

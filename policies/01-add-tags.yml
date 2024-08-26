@@ -1,0 +1,18 @@
+policies:
+  - name: add-project-tag-to-ec2
+    resource: aws.ec2
+    actions:
+      - type: tag
+        key: project
+        value: cloud-custodian-demo
+
+  - name: add-project-tag-to-s3-bucket
+    resource: aws.s3
+    filters:
+      - type: value
+        key: Name
+        value: a-website-for-otherdevopsgene-cloudcustodian
+    actions:
+      - type: tag
+        key: project
+        value: cloud-custodian-demo

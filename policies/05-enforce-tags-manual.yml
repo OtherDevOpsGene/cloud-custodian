@@ -1,0 +1,51 @@
+policies:
+  - name: stop-and-mark-ec2-with-missing-tags
+    resource: aws.ec2
+    comment: |
+      Stop all EC2 instances missing any of our
+      required tags, and mark them for termination
+      in a week.
+    filters:
+      - "tag:c7n_status": absent
+      - or:
+          - "tag:project": absent
+          - "tag:owner": absent
+          - "tag:bill-to": absent
+    actions:
+      - stop
+      - type: mark-for-op
+        tag: c7n_status
+        op: terminate
+        days: 7
+
+  - name: unmark-ec2-without-missing-tags
+    resource: aws.ec2
+    comment: |
+      Unmark all EC2 instances that have all 
+      required tags.
+    filters:
+      - "tag:c7n_status": not-null
+      - "tag:project": not-null
+      - "tag:owner": not-null
+      - "tag:bill-to": not-null
+    actions:
+      - type: remove-tag
+        tags:
+          - c7n_status
+
+  - name: terminate-marked-ec2-for-missing-tags
+    resource: aws.ec2
+    comment: |
+      Terminate all EC2 instances that were marked
+      already for missing tags and have not remediated.
+    filters:
+      - type: marked-for-op
+        tag: c7n_status
+        op: terminate
+      - or:
+          - "tag:project": absent
+          - "tag:owner": absent
+          - "tag:bill-to": absent
+    actions:
+      - type: terminate
+        force: true

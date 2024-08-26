@@ -1,0 +1,13 @@
+accounts:
+  - account_id: "983430165732"
+    name: parent-account
+    regions:
+      - us-east-1
+      - us-east-2
+    role: arn:aws:iam::983430165732:role/CloudCustodian
+  - account_id: "732829343588"
+    name: instruction-account
+    regions:
+      - us-east-1
+      - us-east-2
+    role: arn:aws:iam::732829343588:role/CloudCustodian

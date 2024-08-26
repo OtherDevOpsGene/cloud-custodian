@@ -1,0 +1,13 @@
+policies:
+  - name: stop-ec2-with-missing-tags
+    resource: aws.ec2
+    comment: |
+      Stop all EC2 instances missing any of our
+      required tags.
+    filters:
+      - or:
+          - "tag:project": absent
+          - "tag:owner": absent
+          - "tag:bill-to": absent
+    actions:
+      - stop
