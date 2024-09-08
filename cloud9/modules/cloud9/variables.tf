@@ -13,3 +13,9 @@ variable "env_name" {
   description = "The name of the Cloud9 instance."
   type        = string
 }
+
+variable "tags" {
+  description = "A map of tags to apply to the Cloud9 instances."
+  type        = map(any)
+  default     = {}
+}

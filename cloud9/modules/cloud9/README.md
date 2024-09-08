@@ -24,16 +24,16 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_cloud9_environment_ec2.student](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloud9_environment_ec2) | resource |
+| [aws_cloud9_environment_ec2.workspace](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloud9_environment_ec2) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aws_account"></a> [aws\_account](#input\_aws\_account) | The account ID for this account. | `string` | n/a | yes |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region. | `string` | n/a | yes |
 | <a name="input_env_name"></a> [env\_name](#input\_env\_name) | The name of the Cloud9 instance. | `string` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The instance\_type for the Cloud9 instances. | `string` | `"t3.small"` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to apply to the Cloud9 instances. | `map(any)` | `{}` | no |
 
 ## Outputs
 

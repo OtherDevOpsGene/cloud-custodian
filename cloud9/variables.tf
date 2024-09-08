@@ -14,3 +14,8 @@ variable "env_name" {
   description = "The name of the Cloud9 instance."
   type        = string
 }
+
+variable "owner_email" {
+  description = "The email address of the person responsible for the resources."
+  type        = string
+}

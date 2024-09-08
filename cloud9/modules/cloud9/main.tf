@@ -3,6 +3,8 @@ resource "aws_cloud9_environment_ec2" "workspace" {
   name            = var.env_name
   image_id        = "amazonlinux-2023-x86_64"
   connection_type = "CONNECT_SSM"
+
+  tags = var.tags
 }
 
 output "cloud9_url" {
