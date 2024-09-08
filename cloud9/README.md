@@ -21,7 +21,7 @@ ansible-galaxy role install andrewrothstein.terraform
 Test the dynamic inventory with
 
 ``` shell
-ansible-inventory -i inventory-aws_ec2.yaml --graph
+ansible-inventory --graph
 ```
 
 ## Running
@@ -29,8 +29,8 @@ ansible-inventory -i inventory-aws_ec2.yaml --graph
 ```shell
 terraform init  # or terraform init --upgrade
 terraform apply
-ansible-playbook -i inventory-aws_ec2.yaml terraform.yaml
-ansible-playbook -i inventory-aws_ec2.yaml custodian.yaml
+ansible-playbook terraform.yaml
+ansible-playbook custodian.yaml
 ```
 
 <!-- BEGIN_TF_DOCS -->
