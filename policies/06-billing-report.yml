@@ -1,0 +1,7 @@
+policies:
+  - name: ec2-instances-by-bill-to
+    resource: aws.ec2
+    comment: |
+      Report on EC2 instance by bill-to.
+    filters:
+      - "tag:bill-to": not-null

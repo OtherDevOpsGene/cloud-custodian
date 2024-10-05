@@ -6,7 +6,7 @@ accounts:
       - us-east-2
     role: arn:aws:iam::983430165732:role/CloudCustodian
   - account_id: "732829343588"
-    name: instruction-account
+    name: classroom-account
     regions:
       - us-east-1
       - us-east-2

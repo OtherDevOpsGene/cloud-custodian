@@ -1,6 +1,10 @@
 policies:
   - name: stop-instances-after-hours
     resource: ec2
+    mode:
+      type: periodic
+      schedule: "rate(1 hour)"
+      role: arn:aws:iam::{account_id}:role/custodian-ec2-role
     filters:
       - type: offhour
         tag: CustodianOffHours
@@ -13,6 +17,10 @@ policies:
 
   - name: start-instances-before-hours
     resource: ec2
+    mode:
+      type: periodic
+      schedule: "rate(1 hour)"
+      role: arn:aws:iam::{account_id}:role/custodian-ec2-role
     filters:
       - type: onhour
         tag: CustodianOffHours
