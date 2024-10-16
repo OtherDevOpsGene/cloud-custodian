@@ -2,6 +2,8 @@
 
 Notes for the demos that accompany the presentation.
 
+The slides are at https://www.slideshare.net/slideshow/clean-your-cloud-with-cloud-custodian-slides/272470133.
+
 ## Preparation
 
 Make sure you are logged into AWS.
